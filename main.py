@@ -34,5 +34,10 @@ def get_file():
         return FileResponse(MEDIA_ROOT + '/' + f, media_type='application/octet-stream', filename=f)
 
 
+@app.get("/")
+def main():
+    return 'CRAWLING NEWS'
+
+
 # if __name__ == "__main__":
 #     uvicorn.run(app, host=config.get("APP_HOST"), port=int(config.get("APP_PORT")))
