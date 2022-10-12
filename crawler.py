@@ -58,12 +58,14 @@ def crawler_investing(url, type):
     html.find('div', class_='articleControl withSave').decompose()
     html.find('div', class_='imgCarousel').decompose()
     html.find('div', class_='midHeader').decompose()
-    html.find('div', class_='slider').decompose()
+    
+    if html.find('div', class_='slider'): html.find('div', class_='slider').decompose()
     html.find('div', class_='articleFooter').decompose()
     html.find('div', class_='largeTitle').decompose()
     html.find('div', class_='signupWrap js-gen-popup displayNone').decompose()
     html.find('div', class_='addAComment js-main-comment').decompose()
     html.find('div', class_='doubleLineSeperator').decompose()
+    if html.find('div', class_='viewComments js-commentary'): html.find('div', class_='viewComments js-commentary').decompose()
     
     description = html.find('div', class_='WYSIWYG articlePage').text
     
