@@ -17,9 +17,10 @@ def crawler_tradingview(url, type):
     posted_date = datetime.fromtimestamp(float(html.find('span', class_='tv-chart-view__title-time')['data-timestamp']))
 
     if type == 'text':
-        with open("media/text_file.txt", "w", encoding = 'utf-8') as file:
-            file.write(title)
-            file.write(description)
+        pass
+        # with open("media/text_file.txt", "w", encoding = 'utf-8') as file:
+        #     file.write(title)
+        #     file.write(description)
     else:
         html.find('div', class_='tv-header tv-header__top js-site-header-container tv-header--sticky').decompose()
         html.find('div', class_='tv-chart-view__disclaimer-wrapper').decompose()
@@ -29,8 +30,10 @@ def crawler_tradingview(url, type):
         html.find('div', class_='tv-comment-tree').decompose()
         html.find('footer', class_='tv-footer js-footer').decompose()
         
-        with open("media/html_file.html", "w", encoding = 'utf-8') as file:
-            file.write(str(html.prettify()))
+        # with open("media/html_file.html", "w", encoding = 'utf-8') as file:
+        #     file.write(str(html.prettify()))
+            
+        description = str(html.prettify())
 
     return {
         'title': title,
@@ -65,15 +68,18 @@ def crawler_investing(url, type):
     description = html.find('div', class_='WYSIWYG articlePage').text
     
     if type == 'text':
-        with open("media/text_file.txt", "w", encoding = 'utf-8') as file:
-            file.write(title)
-            file.write(description)
+        pass
+        # with open("media/text_file.txt", "w", encoding = 'utf-8') as file:
+        #     file.write(title)
+        #     file.write(description)
     else:
         for s in html.select('script'):
             s.extract()
 
-        with open("media/html_file.html", "w", encoding = 'utf-8') as file:
-            file.write(str(html.prettify()))
+        # with open("media/html_file.html", "w", encoding = 'utf-8') as file:
+        #     file.write(str(html.prettify()))
+            
+        description = str(html.prettify())
 
     return {
         'title': title,

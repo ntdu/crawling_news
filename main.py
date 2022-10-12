@@ -23,7 +23,8 @@ def get_data_tradingview(request: Request, info: Info, type: str = Query("text",
     url = info.dict()['url']
 
     result = crawler_tradingview(url, type) if url.split('/')[2].split('.')[1] == 'tradingview' else crawler_investing(url, type)
-    result['download_link'] = str(request.base_url) + 'get_file'
+    # result['download_link'] = str(request.base_url) + 'get_file'
+    result['source'] = str(url)
 
     return result
 
