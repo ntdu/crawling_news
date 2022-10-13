@@ -46,6 +46,7 @@ def crawler_investing(url, type):
     print(url)
     print("--------------------------------------")
     html = get_page_content(url)
+    print(html)
 
     title = html.find('h1', class_='articleHeader').text.strip()
 
