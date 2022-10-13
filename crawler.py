@@ -43,13 +43,9 @@ def crawler_tradingview(url, type):
 
 
 def crawler_investing(url, type):
-    print(url)
-    print("--------------------------------------")
     html = get_page_content(url)
-    print(html)
 
     title = html.find('h1', class_='articleHeader').text.strip()
-
     div_time = html.find('div', class_='contentSectionDetails')
     posted_date = div_time.find('span').text.split('(')[1].strip(")")
 
