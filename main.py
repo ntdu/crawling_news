@@ -17,8 +17,8 @@ class Info(BaseModel):
 
 @app.post("/get_data_tradingview/")
 def get_data_tradingview(request: Request, info: Info, type: str = Query("text", enum=["text", "html"])):
-    for f in os.listdir(MEDIA_ROOT):
-        os.remove(os.path.join(MEDIA_ROOT, f))
+    # for f in os.listdir(MEDIA_ROOT):
+    #     os.remove(os.path.join(MEDIA_ROOT, f))
 
     url = info.dict()['url']
 
@@ -29,10 +29,10 @@ def get_data_tradingview(request: Request, info: Info, type: str = Query("text",
     return result
 
 
-@app.get("/get_file", response_class=FileResponse)
-def get_file():
-    for f in os.listdir(MEDIA_ROOT):
-        return FileResponse(MEDIA_ROOT + '/' + f, media_type='application/octet-stream', filename=f)
+# @app.get("/get_file", response_class=FileResponse)
+# def get_file():
+#     for f in os.listdir(MEDIA_ROOT):
+#         return FileResponse(MEDIA_ROOT + '/' + f, media_type='application/octet-stream', filename=f)
 
 
 @app.get("/")

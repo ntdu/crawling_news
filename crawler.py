@@ -43,6 +43,8 @@ def crawler_tradingview(url, type):
 
 
 def crawler_investing(url, type):
+    print(url)
+    print("--------------------------------------")
     html = get_page_content(url)
 
     title = html.find('h1', class_='articleHeader').text.strip()
