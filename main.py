@@ -11,21 +11,15 @@ from fastapi.responses import FileResponse
 app = FastAPI()
 MEDIA_ROOT = 'media'
 
-origins = [
-    "http://investment-admin.jobfi.vn",
-    "http://localhost:3011",
-    "http://localhost",
-    "http://localhost:8080",
-]
-# origins = ["*"]
+# origins = [
+#     "http://investment-admin.jobfi.vn",
+#     "http://localhost:3011",
+#     "http://localhost",
+#     "http://localhost:8080",
+# ]
+origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 class Info(BaseModel):
     url : str
@@ -55,6 +49,12 @@ def get_data_tradingview(request: Request, info: Info, type: str = Query("text",
 def main():
     return 'CRAWLING NEWS'
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # if __name__ == "__main__":
 #     uvicorn.run(app, host=config.get("APP_HOST"), port=int(config.get("APP_PORT")))
