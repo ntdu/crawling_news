@@ -15,7 +15,7 @@ origins = [
     "http://localhost:3011",
     "http://localhost",
     "http://localhost:8080",
-    "http://investment-admin.jobfi.vn"
+    "http://investment-admin.jobfi.vn",
 ]
 
 app.add_middleware(
