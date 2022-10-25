@@ -11,31 +11,30 @@ from fastapi.responses import FileResponse
 app = FastAPI()
 MEDIA_ROOT = 'media'
 
-# origins = [
-#     "http://investment-admin.jobfi.vn",
-#     "http://localhost:3011",
-#     "http://localhost",
-#     "http://localhost:8080",
-# ]
-origins = ["*"]
-
-from starlette.middleware import Middleware
-from starlette.middleware.cors import CORSMiddleware
-
-
-middleware = [
-    Middleware(CORSMiddleware, allow_origins=origins)
+origins = [
+    "http://investment-admin.jobfi.vn",
+    "http://localhost:3011",
+    "http://localhost",
+    "http://localhost:8080",
 ]
 
-app = FastAPI(middleware=middleware)
+# from starlette.middleware import Middleware
+# from starlette.middleware.cors import CORSMiddleware
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+
+# middleware = [
+#     Middleware(CORSMiddleware, allow_origins=origins)
+# ]
+
+# app = FastAPI(middleware=middleware)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Info(BaseModel):
     url : str
