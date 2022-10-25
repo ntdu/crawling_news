@@ -14,7 +14,7 @@ def crawler_tradingview(url, type):
 
     title = html.find('h1', class_='tv-chart-view__title-name js-chart-view__name').text.strip()
     description = html.find('div', class_='tv-chart-view__description-wrap js-chart-view__description').text
-    posted_date = datetime.fromtimestamp(float(html.find('span', class_='tv-chart-view__title-time')['data-timestamp']))
+    posted_date = datetime.fromtimestamp(float(html.findAll('span', class_='tv-chart-view__title-time')[-1]['data-timestamp']))
 
     if type == 'text':
         pass
