@@ -12,7 +12,7 @@ app = FastAPI()
 MEDIA_ROOT = 'media'
 
 origins = [
-    "http://investment-admin.jobfi.vn",
+    "http://investment-admin.jobfi.vn:3011",
     "http://localhost:3011",
     "http://localhost",
     "http://localhost:8080",
