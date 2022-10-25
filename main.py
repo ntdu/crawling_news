@@ -13,6 +13,8 @@ MEDIA_ROOT = 'media'
 
 origins = [
     "http://investment-admin.jobfi.vn",
+    "http://investment-admin.jobfi.vn:3011",
+    "http://investment-admin.jobfi.vn:8080",
     "http://localhost:3011",
     "http://localhost",
     "http://localhost:8080",
